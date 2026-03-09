@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XVI TEAM - Home</title>
+    <style>
+        /* --- STILI BASE E COLORI --- */
+        :root {
+            --pink-light: #ffd6e8;
+            --pink-main: #ff99c8;
+            --pink-dark: #fc6da9;
+            --bg-color: #e5e5e5;
+            --text-dark: #000;
+        }
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif; /* Poi potrai mettere il tuo font custom */
+            background-color: var(--bg-color);
+            overflow-x: hidden;
+        }
+
+        /* --- NAVBAR IN ALTO --- */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(90deg, var(--pink-light), var(--pink-main));
+            padding: 10px 20px;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+        .nav-links { display: flex; gap: 20px; font-weight: bold; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); cursor: pointer;}
+        
+        /* Tasto Fiore Menu */
+        .menu-btn { cursor: pointer; font-size: 24px; background: none; border: none; }
+        .right-nav { display: flex; align-items: center; gap: 15px; }
+        .search-bar { border-radius: 20px; border: none; padding: 5px 15px; }
+
+        /* --- MENU A SCORRIMENTO LATERALE (Foto 3) --- */
+        #side-menu {
+            position: fixed;
+            top: 0; left: -300px; /* Nascosto a sinistra */
+            width: 250px; height: 100vh;
+            background-color: #fce4ec;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            transition: left 0.4s ease; /* L'animazione fluida */
+            z-index: 1000;
+            padding: 20px;
+        }
+        #side-menu.open { left: 0; /* Entra nello schermo */ }
+        .menu-item {
+            font-size: 24px; font-weight: bold; margin: 20px 0;
+            cursor: pointer; display: block; text-decoration: none; color: black;
+        }
+
+        /* --- BARRA SOCIAL STICKY (Foto 4-7) --- */
+        .social-sidebar {
+            position: fixed;
+            top: 50%; right: 10px;
+            transform: translateY(-50%);
+            background: rgba(255, 153, 200, 0.3);
+            border-radius: 20px;
+            padding: 10px;
+            display: flex; flex-direction: column; gap: 15px;
+            z-index: 900;
+        }
+        .social-icon {
+            width: 30px; height: 30px; background-color: #333; color: white;
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            text-decoration: none; font-size: 12px;
+        }
+
+        /* --- CONTENUTO CENTRALE (Home - Foto 1) --- */
+        .main-content {
+            display: flex; justify-content: center; align-items: center;
+            height: 70vh; flex-direction: column;
+        }
+        .logo-xvi { font-size: 100px; font-weight: 900; margin: 0; }
+        .logo-team { font-size: 40px; font-weight: bold; transform: rotate(-5deg); }
+
+        /* --- FOOTER / NEWSLETTER (Foto 2) --- */
+        footer {
+            background: linear-gradient(180deg, var(--pink-main), var(--pink-dark));
+            padding: 40px 20px; text-align: center; margin-top: 50px;
+        }
+        .newsletter-box {
+            background: #fff; padding: 10px 20px; border-radius: 30px;
+            display: inline-flex; align-items: center; border: 2px solid black;
+        }
+        .newsletter-box input { border: none; outline: none; padding: 10px; width: 250px; }
+        .newsletter-box button {
+            background: var(--pink-light); border: 2px solid black;
+            border-radius: 20px; padding: 5px 15px; font-weight: bold; cursor: pointer;
+        }
+        .footer-links { margin-top: 20px; display: flex; justify-content: center; gap: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <button class="menu-btn" onclick="toggleMenu()">🌸</button>
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="history.html">HISTORY</a>
+            <a href="minecraft.html">MINECRAFT</a>
+            <a href="games.html">GAMES</a>
+            <a href="shop.html">SHOP</a>
+        </div>
+        <div class="right-nav">
+            <input type="text" class="search-bar" placeholder="SEARCH 🔍">
+            <div class="profile-icon">👤</div>
+        </div>
+    </nav>
+
+    <div id="side-menu">
+        <button class="menu-btn" onclick="toggleMenu()">✖ Chiudi</button>
+        <h2>🌸 XVI</h2>
+        <a href="games.html" class="menu-item">- GAMES</a>
+        <a href="history.html" class="menu-item">- HISTORY</a>
+        <a href="minecraft.html" class="menu-item">- MINECRAFT</a>
+        <a href="shop.html" class="menu-item">- SHOP</a>
+    </div>
+
+    <aside class="social-sidebar">
+        <a href="#" class="social-icon">DC</a>
+        <a href="#" class="social-icon">X</a>
+        <a href="#" class="social-icon">IG</a>
+        <a href="#" class="social-icon">TK</a>
+        <a href="#" class="social-icon">YT</a>
+        <a href="#" class="social-icon">TW</a>
+    </aside>
+
+    <main class="main-content">
+        <h1 class="logo-xvi">XVI</h1>
+        <h2 class="logo-team">TEAM ★</h2>
+    </main>
+
+    <footer>
+        <div class="newsletter-box">
+            <input type="email" placeholder="EMAIL ADDRESS">
+            <button>SIGN-UP</button>
+        </div>
+        <p style="font-size: 12px; margin-top: 15px;">
+            Tick to consent to XVI.inc Digital contacting you...<br>
+            <input type="checkbox"> I agree to receive other communications.
+        </p>
+        <div class="footer-links">
+            <a href="#">Contact us</a>
+            <a href="#">Support</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Legal</a>
+        </div>
+        <p>©XVI.inc 2026</p>
+    </footer>
+
+    <script>
+        // Funzione per aprire/chiudere il menu laterale
+        function toggleMenu() {
+            const menu = document.getElementById('side-menu');
+            menu.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
